@@ -1,34 +1,13 @@
 #include <iostream>
 
 int main() {
-    int n;
-    int k;
-    int m;
-    int currentEntrance;
-    int currentFloor;
+    int n, k, m;
+    std::cin >> n >> k >> m;
 
-    std::cin >> n;
-    std::cin >> k;
-    std::cin >> m;
+    int apartments_in_entrance = k * m;
 
-    for (int entrance = 1; entrance < 1001; entrance++)
-    {
-        int maxRoomOnCurrentEntrance = entrance * k;
+    int entrance = (n - 1) / apartments_in_entrance + 1;
+    int floor = ((n - 1) % apartments_in_entrance) / m + 1;
 
-        if (n <= maxRoomOnCurrentEntrance) {
-            currentEntrance = entrance;
-            break;
-        }
-    }
-
-    for (int floor = 1; floor < 1001; floor++) {
-        int maxRoomOnCurrentFloor = floor * m;
-
-        if (n <= maxRoomOnCurrentFloor) {
-            currentFloor = floor;
-            break;
-        }
-    }
-
-    std::cout << currentEntrance << currentFloor;
+    std::cout << entrance << " " << floor << std::endl;
 }
