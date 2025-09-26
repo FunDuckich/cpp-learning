@@ -6,7 +6,7 @@ int main() {
     std::cin >> a >> x >> b >> y;
 
     int total_salt_units = a * x + b * y;
-    int total_volume = a + b;ф
+    int total_volume = a + b;
 
     int final_concentration = total_salt_units / total_volume;
 
