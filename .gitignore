@@ -3,6 +3,8 @@
 # Prerequisites
 *.d
 
+.idea/
+
 # Compiled Object files
 *.slo
 *.lo
