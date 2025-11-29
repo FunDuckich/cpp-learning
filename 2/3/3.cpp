@@ -29,8 +29,6 @@ int main() {
     float x2 = -2.0f;
     float x3 = 3.0f;
 
-    std::cout << "--- Demonstrating function overloading ---" << std::endl;
-
     std::cout << "\nTesting with x = " << x1 << std::endl;
     const float result_v1_x1 = F(x1);
     std::cout << "returns float: F(0.5) = " << result_v1_x1 << std::endl;
