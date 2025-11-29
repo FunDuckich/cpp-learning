@@ -1,0 +1,7 @@
+this is a valid line.
+This line contains an uppercase letter.
+another valid line with numbers 123 and symbols !@#.
+this one is ALSO invalid.
+
+an empty line is also valid.
+ALL CAPS LINE.
