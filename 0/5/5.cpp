@@ -1,40 +1,36 @@
 #include <iostream>
-#include <vector>
 #include <iomanip>
 
 int main() {
     int n;
     std::cin >> n;
 
-    std::vector<double> numbers(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> numbers[i];
-    }
+    double final_answer = 0.0;
+    double running_sum = 0.0;
+    bool first_negative_found = false;
+    int negative_count = 0;
 
-    int first_neg_idx = -1;
-    int last_neg_idx = -1;
+    for (int i = 0; i < n; i++) {
+        double current_num;
+        std::cin >> current_num;
 
-    for (int i = 0; i < n; ++i) {
-        if (numbers[i] < 0) {
-            first_neg_idx = i;
-            break;
+        if (!first_negative_found) {
+            if (current_num < 0) {
+                first_negative_found = true;
+                negative_count++;
+            }
+        } else {
+            if (current_num < 0) {
+                final_answer = running_sum;
+                negative_count++;
+            }
+            running_sum += current_num;
         }
     }
 
-    for (int i = n - 1; i >= 0; --i) {
-        if (numbers[i] < 0) {
-            last_neg_idx = i;
-            break;
-        }
+    if (negative_count < 2) {
+        std::cout << std::fixed << std::setprecision(3) << 0.0 << std::endl;
+    } else {
+        std::cout << std::fixed << std::setprecision(3) << final_answer << std::endl;
     }
-
-    double total_sum = 0.0;
-
-    if (first_neg_idx != -1 && first_neg_idx < last_neg_idx) {
-        for (int i = first_neg_idx + 1; i < last_neg_idx; ++i) {
-            total_sum += numbers[i];
-        }
-    }
-
-    std::cout << std::fixed << std::setprecision(3) << total_sum << std::endl;
 }
